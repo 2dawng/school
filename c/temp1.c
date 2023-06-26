@@ -1,22 +1,68 @@
 #include<stdio.h>
-// #include<string>
-int fib(int n){
-    int a = 0, b = 1, s = 1, temp = 0;
-    if (n == 1) {b = 0; s = 0;}
-    else for (int i = 2; i < n; i++){
-        temp = b;
-        b += a;
-        a = temp;
-        s += b;
-    }
-    return printf("so fibonacci thu %d la: %d\ntong cac so fibonacci la: %d", n, b, s);
+#include<stdlib.h>
+#include<math.h>
+
+void in(int a[][100], int m, int n){
+	for(int i=0; i<m; i++){
+		printf("\n");
+		for(int j=0; j<n; j++){
+			printf("%d ", a[i][j]);
+		}
+	}
 }
-// int palindrome(char n[]){
-    
-//     return n;
-// }
+
+void tbc(int a[][100], int m, int n){
+	int tong=0;
+	int dem =0;
+	for(int i=0; i<m; i++){
+		for(int j=0; j<n; j++){
+			if(a[i][j] % 3==1 && a[i][j]%2==0){
+				dem++;
+				tong+=a[i][j];
+			}
+		}
+	}
+	printf("\ntbc = %.2f", (float)tong/dem);
+}
+
+void tong_hang(int a[][100], int m, int n){
+	for(int i=0; i<m; i++){
+		int sum=0;
+		for(int j=0; j<n; j++){
+			sum+=a[i][j];
+		}
+		printf("Tong hang %d = %d\n",i+1,sum);
+	}
+}
+
+void inrafile(FILE *f2, int a[][100], int m, int n){
+	for(int i=0; i<m; i++){
+		fprintf(f2, "\n");
+		for(int j=0; j<n; j++){
+			fprintf(f2, "%d ", a[i][j]);
+		}
+	}
+}
+
 int main(){
-    int n;
-    scanf("%d", &n);
-    printf(" hi %d",n);
+	FILE *f = fopen("input81.txt", "r");
+	int m, n;
+	fscanf(f, "%d%d ", &m, &n);
+	int a[100][100];
+	for(int i=0; i<m; i++){
+		for(int j=0; j<n; j++){
+			fscanf(f, "%d", &a[i][j]);
+		}
+	}
+	in(a,m,n);
+	tbc(a, m, n);
+	printf("\n");
+	tong_hang(a,m,n);
+	char file[30];
+	printf("\nNhap ten file:");
+	scanf("%s", file);
+	FILE *f2 = fopen(file, "w");
+	inrafile(f2, a, m, n);
+	fclose(f);
+	
 }

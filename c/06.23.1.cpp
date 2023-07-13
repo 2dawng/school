@@ -10,7 +10,7 @@ struct DV {
 
 void readnprint(DV *arr, int n){
     for (int i = 0; i < n; i++) {
-        scanf("%[^\n]s", arr[i].hoten);
+        scanf("w", arr[i].hoten);
         scanf(" %d", &arr[i].ns);
         scanf("%d", arr[i].nkn);
         // scanf(" %c", &arr[i].hoc);

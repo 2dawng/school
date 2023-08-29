@@ -1,2 +1,4 @@
-tasks.json
+*.json
+!setting.json
 *.exe
+.vscode

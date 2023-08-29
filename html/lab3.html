@@ -5,13 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
         .d-flex {
             display: flex;
             gap: 20px;
             background-color: rgb(249, 249, 249);
-            font-size: x-large;
             border-bottom: 1px solid gray;
-            font-family: Arial, Helvetica, sans-serif;
             height: 45px;
             align-items: center;
             margin-top: -8px;
@@ -19,7 +25,6 @@
         }
 
         .header {
-            font-family: Arial, Helvetica, sans-serif;
             color: rgb(85, 85, 85);
         }
 
@@ -29,49 +34,48 @@
         }
 
         .left-box {
-            flex: 25%;
+            width: 25%;
             padding: 20px;
             background-color: aquamarine;
         }
 
         .right-box {
-            flex: 75%;
+            width: 75%;
             padding: 20px;
             background-color: blanchedalmond;
         }
 
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
 
         .dropdown-button {
-            color: black;
-            padding: 10px;
-            border: none;
-            width: 100%;
+            font-size: large;
+            width:12px;
+            height:12px;
+            padding: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 4px;
         }
 
         .dropdown-content {
             display: none;
-            /* position: absolute; */
             background-color: #f9f9f9;
-            width: 100%;
         }
 
         .dropdown-content a {
-            color: black;
-            /* padding: 12px 16px; */
             text-decoration: none;
             display: block;
         }
 
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
         .show {
             display: block;
+        }
+
+        .text-box{
+            display: flex;
+            background-color: #f9f9f9;
+            gap: 5px;
+            border: 2px solid #E9E9E9;
         }
     </style>
 </head>
@@ -89,54 +93,64 @@
 
     <div class="container">
         <div class="left-box">
-            <div class="dropdown">
-                <button class="dropdown-button" onclick="toggleDropdown1()">Toggle Dropdown</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Option 1</a>
-                    <a href="#">Option 2</a>
-                    <a href="#">Option 3</a>
+            <div class="column">
+                <div class="dropdown" >
+                    <div class="text-box">
+                    <button class="dropdown-button" onclick="toggleDropdown1()">-</button>Quicklinks 1</div>
+                    <div id="myDropdown1" class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <a href="#">Link 4</a>
+                        <a href="#">Link 5</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="dropdown">
+                    <div class="text-box">
+                    <button class="dropdown-button" onclick="toggleDropdown2()">-</button>Quicklinks 2</div>
+                    <div id="myDropdown2" class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <a href="#">Link 4</a>
+                        <a href="#">Link 5</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="dropdown">
+                    <div class="text-box">
+                    <button class="dropdown-button" onclick="toggleDropdown3()">-</button>Quicklinks 3</div>
+                    <div id="myDropdown3" class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <a href="#">Link 4</a>
+                        <a href="#">Link 5</a>
+                    </div>
                 </div>
             </div>
             <script>
                 function toggleDropdown1() {
-                    var dropdownContent = document.getElementById("myDropdown");
+                    var dropdownContent = document.getElementById("myDropdown1");
+                    dropdownContent.classList.toggle("show");
+                }
+
+                function toggleDropdown2() {
+                    var dropdownContent = document.getElementById("myDropdown2");
+                    dropdownContent.classList.toggle("show");
+                }
+
+                function toggleDropdown3() {
+                    var dropdownContent = document.getElementById("myDropdown3");
                     dropdownContent.classList.toggle("show");
                 }
             </script>
         </div>
-        <div class="container">
-            <div class="left-box">
-                <div class="dropdown">
-                    <button class="dropdown-button" onclick="toggleDropdown2()">Toggle Dropdown</button>
-                    <div id="myDropdown1" class="dropdown-content">
-                        <a href="#">Option 1</a>
-                        <a href="#">Option 2</a>
-                        <a href="#">Option 3</a>
-                    </div>
-                </div>
-                <script>
-                    function toggleDropdown2() {
-                        var dropdownContent = document.getElementById("myDropdown1");
-                        dropdownContent.classList.toggle("show");
-                    }
-                </script>
-            </div>    <div class="container">
-                <div class="left-box">
-                    <div class="dropdown">
-                        <button class="dropdown-button" onclick="toggleDropdown3()">Toggle Dropdown</button>
-                        <div id="myDropdown2" class="dropdown-content">
-                            <a href="#">Option 1</a>
-                            <a href="#">Option 2</a>
-                            <a href="#">Option 3</a>
-                        </div>
-                    </div>
-                    <script>
-                        function toggleDropdown3() {
-                            var dropdownContent = document.getElementById("myDropdown2");
-                            dropdownContent.classList.toggle("show");
-                        }
-                    </script>
-                </div>
 
         <div class="right-box">
 

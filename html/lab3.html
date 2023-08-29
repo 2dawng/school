@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        
         body {
+            font-size: large;
             font-family: Arial, Helvetica, sans-serif;
             box-sizing: border-box;
             width: 100vw;
@@ -36,53 +36,85 @@
         .left-box {
             width: 25%;
             padding: 20px;
-            background-color: aquamarine;
+            /* background-color: aquamarine; */
         }
 
         .right-box {
             width: 75%;
             padding: 20px;
-            background-color: blanchedalmond;
+            /* background-color: crimson; */
         }
 
+        .text-box {
+            display: flex;
+            background-color: #f9f9f9;
+            gap: 5px;
+            border: 1px solid #e9e9e9;
+            margin-top: 35px;
+        }
 
         .dropdown-button {
             font-size: large;
-            width:12px;
-            height:12px;
-            padding: 1px;
+            width: 10px;
+            height: 10px;
+            padding: 0px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 4px;
+            margin-left: 4px;
         }
 
         .dropdown-content {
-            display: none;
+            display: block;
             background-color: #f9f9f9;
+            border: 1px solid #e9e9e9;
+            border-top: 0px;
         }
 
         .dropdown-content a {
+            margin-left: 10px;
             text-decoration: none;
+            padding: 5px;
             display: block;
         }
 
-        .show {
-            display: block;
+        .hide {
+            display: none;
         }
 
-        .text-box{
-            display: flex;
-            background-color: #f9f9f9;
-            gap: 5px;
-            border: 2px solid #E9E9E9;
+        table {
+            /* table-layout:; */
+            border: 1px solid #e9e9e9;
+            margin-top: 10px;
+            border-collapse: collapse;
+            width: 100%;
         }
+
+        th {
+            color: #555555;
+            border-bottom: 1px solid #e9e9e9;
+            /* width: 100%; */
+            /* display: grid; */
+        }
+
+        td{
+            /* display:inline;
+            justify-content: end; */
+            border-bottom: 1px solid #e9e9e9;
+            padding: 20px;
+        }
+        .info {
+            text-align: right;
+            width: 106px;
+        }
+
     </style>
 </head>
 
 <body>
     <div class="d-flex">
-        <div style="margin-left: 12px;"><a href="#">Home</a></div>
+        <div style="margin-left: 12px"><a href="#">Home</a></div>
         <div><a href="#">Product</a></div>
         <div><a href="#">Services</a></div>
         <div><a href="#">About</a></div>
@@ -94,9 +126,11 @@
     <div class="container">
         <div class="left-box">
             <div class="column">
-                <div class="dropdown" >
-                    <div class="text-box">
-                    <button class="dropdown-button" onclick="toggleDropdown1()">-</button>Quicklinks 1</div>
+                <div class="dropdown">
+                    <div class="text-box" style="margin-top: 0px">
+                        <button class="dropdown-button" onclick="toggleDropdown1()">
+                            -</button>Quicklinks 1
+                    </div>
                     <div id="myDropdown1" class="dropdown-content">
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
@@ -110,7 +144,9 @@
             <div class="column">
                 <div class="dropdown">
                     <div class="text-box">
-                    <button class="dropdown-button" onclick="toggleDropdown2()">-</button>Quicklinks 2</div>
+                        <button class="dropdown-button" onclick="toggleDropdown2()">
+                            -</button>Quicklinks 2
+                    </div>
                     <div id="myDropdown2" class="dropdown-content">
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
@@ -124,7 +160,9 @@
             <div class="column">
                 <div class="dropdown">
                     <div class="text-box">
-                    <button class="dropdown-button" onclick="toggleDropdown3()">-</button>Quicklinks 3</div>
+                        <button class="dropdown-button" onclick="toggleDropdown3()">
+                            -</button>Quicklinks 3
+                    </div>
                     <div id="myDropdown3" class="dropdown-content">
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
@@ -137,28 +175,60 @@
             <script>
                 function toggleDropdown1() {
                     var dropdownContent = document.getElementById("myDropdown1");
-                    dropdownContent.classList.toggle("show");
+                    dropdownContent.classList.toggle("hide");
                 }
 
                 function toggleDropdown2() {
                     var dropdownContent = document.getElementById("myDropdown2");
-                    dropdownContent.classList.toggle("show");
+                    dropdownContent.classList.toggle("hide");
                 }
 
                 function toggleDropdown3() {
                     var dropdownContent = document.getElementById("myDropdown3");
-                    dropdownContent.classList.toggle("show");
+                    dropdownContent.classList.toggle("hide");
                 }
             </script>
         </div>
 
         <div class="right-box">
+            <div>
+                Welcome to our sample web page. We'll be disecting this page piece by
+                piece to show you the best ways to use HTML, CSS and JavaScript.
+            </div>
+            <table>
+                <tr>
+                    <th colspan="2">Create a Profile</th>
+                </tr>
+                <tr>
+                    <td class="info">
+                        First Name:
+                    </td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="info">
+                        Last Name:
+                    </td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="info">
+                        
+                            Date of Birth:
+                    </td>
+                    <td>
+                        3 dropbox for month day years
+                    </td>
 
-
+                </tr>
+                <tr>
+                    <td class="info">
+                        Gender:
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
-
-
 </body>
 
 </html>

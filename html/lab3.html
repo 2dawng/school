@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        .d-flex {
+            display: flex;
+            gap: 20px;
+            background-color: rgb(249, 249, 249);
+            border-bottom: 1px solid gray;
+            height: 45px;
+            align-items: center;
+            margin-top: -8px;
+            margin-left: -8px;
+        }
+
+        .header {
+            color: rgb(85, 85, 85);
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .left-box {
+            width: 25%;
+            padding: 20px;
+            background-color: aquamarine;
+        }
+
+        .right-box {
+            width: 75%;
+            padding: 20px;
+            background-color: blanchedalmond;
+        }
+
+
+        .dropdown-button {
+            font-size: large;
+            width:12px;
+            height:12px;
+            padding: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 4px;
+        }
+
+        .dropdown-content {
+            display: none;
+            background-color: #f9f9f9;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            display: block;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .text-box{
+            display: flex;
+            background-color: #f9f9f9;
+            gap: 5px;
+            border: 2px solid #E9E9E9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex">
+        <div style="margin-left: 12px;"><a href="#">Home</a></div>
+        <div><a href="#">Product</a></div>
+        <div><a href="#">Services</a></div>
+        <div><a href="#">About</a></div>
+        <div><a href="#">Contact</a></div>
+    </div>
+
+    <h1 class="header">Web Developer, Inc.</h1>
+
+    <div class="container">
+        <div class="left-box">
+            <div class="column">
+                <div class="dropdown" >
+                    <div class="text-box">
+                    <button class="dropdown-button" onclick="toggleDropdown1()">-</button>Quicklinks 1</div>
+                    <div id="myDropdown1" class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <a href="#">Link 4</a>
+                        <a href="#">Link 5</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="dropdown">
+                    <div class="text-box">
+                    <button class="dropdown-button" onclick="toggleDropdown2()">-</button>Quicklinks 2</div>
+                    <div id="myDropdown2" class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <a href="#">Link 4</a>
+                        <a href="#">Link 5</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="dropdown">
+                    <div class="text-box">
+                    <button class="dropdown-button" onclick="toggleDropdown3()">-</button>Quicklinks 3</div>
+                    <div id="myDropdown3" class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <a href="#">Link 4</a>
+                        <a href="#">Link 5</a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function toggleDropdown1() {
+                    var dropdownContent = document.getElementById("myDropdown1");
+                    dropdownContent.classList.toggle("show");
+                }
+
+                function toggleDropdown2() {
+                    var dropdownContent = document.getElementById("myDropdown2");
+                    dropdownContent.classList.toggle("show");
+                }
+
+                function toggleDropdown3() {
+                    var dropdownContent = document.getElementById("myDropdown3");
+                    dropdownContent.classList.toggle("show");
+                }
+            </script>
+        </div>
+
+        <div class="right-box">
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

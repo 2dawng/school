@@ -1,0 +1,6 @@
+1. Lớp là gì?
+    Lớp là kiểu dữ liệu do người dùng tự định nghĩa bao gồm cả dữ liệu (thuộc tính) và hàm (phương thức) xử lý dữ liệu.
+    Cú pháp
+        class tên_lớp{
+            phạm vi
+        }

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Indie Flower');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('./font/EucrosiaUPCBoldItalic.ttf');
 * {
     font-family: Roboto, sans-serif, 'Indie Flower', cursive, "EucrosiaUPC sans-serif";
 }
@@ -66,7 +67,7 @@ article img {
 }
 
 p::first-letter {
-    font-family: 'Times New Roman', Times, serif, sans-serif;
+    font-family: 'EucrosiaUPC',  sans-serif;
     font-size: 40px;
 }
 

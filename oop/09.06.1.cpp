@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+    #include<bits/stdc++.h>
 using namespace std;
 
 class SV{
@@ -39,7 +39,10 @@ void SV::xuat(){
     cout << anh;
 }
 int main(){
-    SV a;
-    a.nhap();
-    a.xuat();
+    for(int i = 0; i < 3; i++){
+        SV a;
+        a.nhap();
+        a.xuat();
+        cout << "\n";
+    }
 }

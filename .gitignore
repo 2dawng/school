@@ -1,5 +1,5 @@
-*.json
+# *.json
 !setting.json
 *.exe
-.vscode
+# .vscode
 toeic.txt

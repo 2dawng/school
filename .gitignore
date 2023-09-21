@@ -2,4 +2,4 @@
 !setting.json
 *.exe
 # .vscode
-toeic.txt
+*.txt

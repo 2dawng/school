@@ -73,6 +73,7 @@ span a {
     color: #ffffff;
     padding: 10px;
     margin-top: 10px;
+    font-weight: bolder;
 }
 
 footer {
@@ -134,5 +135,5 @@ p {
     margin: 0;
 }
 article p{
-    font-size: 16.3px
+    font-size: 16.2px
 }

@@ -1,11 +1,8 @@
 {
   "files.exclude": {
-      "**/*.exe": true
+    "**/*exe*": true
   },
-  "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
-    "ostream": "cpp",
-    "iostream": "cpp",
-    "iosfwd": "cpp"
+    "iostream": "cpp"
   }
 }

@@ -1,7 +1,7 @@
 import os
 
-# Read the input file and create the graph
-
+trang_thai_ke = []  # List to store the state of each node
+danh_sach_L = []  # List to store L values for each node
 
 def read_graph(file_path):
     if not os.path.exists(file_path):
@@ -40,41 +40,44 @@ def read_graph(file_path):
 
     return graph, start_node, end_node
 
-# DFS implementation with visualization
 
-
-def dfs(graph, start, end, path=None, visited=None, output_file=None):
+def dfs(graph, start, end, path=None, visited=None, output_file=None, stack=None):
     if path is None:
         path = []
     if visited is None:
         visited = set()
+    if stack is None:
+        stack = [start]
 
     path.append(start)
     visited.add(start)
 
-    # Visualization print
+    if start in stack:
+        stack.remove(start)
+
+    children = [node for node in graph.get(start, []) if node not in stack]
+    stack = children + stack
+
+    stack = [s for s in stack if s not in visited]
+
     if output_file:
-        output_file.write(f"| Visiting      | {start:<4} | {
-                          ' -> '.join(path):<20} |\n")
-    else:
-        print(f"Visiting: {start}, Path: {' -> '.join(path)}")
+        output_file.write(f"Visiting\t\t{start}\t\t{' -> '.join(path):<20}\t{', '.join(stack):<20}\t{graph.get(start, [])}\t\t\t{visited}\n")
 
     if start == end:
         return path
 
     for neighbor in graph.get(start, []):
         if neighbor not in visited:
-            result = dfs(graph, neighbor, end, path, visited, output_file)
+            result = dfs(graph, neighbor, end, path, visited, output_file, stack)
             if result:
                 return result
 
     path.pop()
-    # Visualization print
+
+    stack = [s for s in stack if s not in visited]
+
     if output_file:
-        output_file.write(f"| Backtracking  | {start:<4} | {
-                          ' -> '.join(path):<20} |\n")
-    else:
-        print(f"Backtracking from: {start}, Path: {' -> '.join(path)}")
+        output_file.write(f"Backtracking\t{start}\t\t{' -> '.join(path):<20}\t{', '.join(stack):<20}\n")
     return None
 
 
@@ -86,22 +89,14 @@ def main():
     try:
         graph, start_node, end_node = read_graph(input_file_path)
         with open(output_file_path, 'w') as output_file:
-            output_file.write(
-                "+---------------+------+----------------------+\n")
-            output_file.write(
-                "| Action        | Node | Path                 |\n")
-            output_file.write(
-                "+---------------+------+----------------------+\n")
+            output_file.write("Action\t\t\tNode\tPath\t\n\n")
 
             path = dfs(graph, start_node, end_node, output_file=output_file)
 
-            output_file.write(
-                "+---------------+------+----------------------+\n")
-
             if path:
-                output_file.write(f"Path found: {' -> '.join(path)}\n")
+                output_file.write(f"\nPath found: {' -> '.join(path)}\n")
             else:
-                output_file.write("No path found\n")
+                output_file.write("\nNo path found\n")
     except (FileNotFoundError, ValueError) as e:
         print(e)
 

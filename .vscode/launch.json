@@ -1,4 +1,105 @@
 {
-  "configurations": [],
-  "version": "2.0.0"
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug Server",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/ltm/server.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/ltm"
+        },
+        {
+            "name": "Debug Client",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/ltm/client.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/ltm"
+        },
+        {
+            "name": "Debug Client Text Format",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/ltm/client_text_format.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/ltm"
+        },
+        {
+            "name": "Debug Client UUID",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/ltm/client_uuid.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/ltm"
+        },
+        {
+            "name": "Debug Client Multi-threaded",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/ltm/client_multi_threaded.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/ltm"
+        },
+        {
+            "name": "Debug Client Simple",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/ltm/client_simple.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/ltm"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Debug Server & Client",
+            "configurations": [
+                "Debug Server",
+                "Debug Client"
+            ],
+            "stopAll": true
+        },
+        {
+            "name": "Debug Server & Text Format Client",
+            "configurations": [
+                "Debug Server",
+                "Debug Client Text Format"
+            ],
+            "stopAll": true
+        },
+        {
+            "name": "Debug Server & UUID Client",
+            "configurations": [
+                "Debug Server",
+                "Debug Client UUID"
+            ],
+            "stopAll": true
+        },
+        {
+            "name": "Debug Server & Multi-threaded Client",
+            "configurations": [
+                "Debug Server",
+                "Debug Client Multi-threaded"
+            ],
+            "stopAll": true
+        },
+        {
+            "name": "Debug Server & Simple Client",
+            "configurations": [
+                "Debug Server",
+                "Debug Client Simple"
+            ],
+            "stopAll": true
+        }
+    ]
 }

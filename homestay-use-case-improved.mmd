@@ -1,0 +1,81 @@
+---
+title: Biểu đồ Use Case - Quản lý Homestay (Phiên bản cải tiến)
+---
+graph TD
+    %% Define Actors
+    Host["👤 Chủ homestay"]
+    Admin["👤 Admin"]
+
+    %% Main System Boundary
+    subgraph SystemBoundary["🏠 Hệ thống Quản lý Homestay"]
+        
+        %% Subgraph for Profile & Listing Management
+        subgraph Profile["📋 1. Quản lý Hồ sơ & Homestay"]
+            UC1["UC1: Quản lý hồ sơ"]
+            UC1_1["UC1.1: Xác thực tài khoản"]
+            UC2["UC2: Đăng tải homestay mới"]
+            UC3["UC3: Cập nhật chi tiết homestay"]
+            UC2_1["UC2.1: Chờ Admin duyệt"]
+        end
+
+        %% Subgraph for Calendar & Pricing
+        subgraph Calendar["📅 2. Quản lý Lịch & Giá"]
+            UC4["UC4: Xem và Cập nhật Lịch tổng quan"]
+            UC4_1["UC4.1: Chặn/Mở ngày"]
+            UC5["UC5: Thiết lập Quy tắc giá linh hoạt"]
+        end
+
+        %% Subgraph for Booking Management
+        subgraph Booking["📊 3. Quản lý Đặt phòng"]
+            UC6["UC6: Tiếp nhận và Xử lý Yêu cầu đặt"]
+            UC6_1["UC6.1: Chấp nhận yêu cầu"]
+            UC6_2["UC6.2: Từ chối yêu cầu"]
+            UC7["UC7: Xem Danh sách Đặt phòng"]
+            UC7_1["UC7.1: Lọc danh sách"]
+            UC7_2["UC7.2: Tìm kiếm đặt phòng"]
+            UC7_3["UC7.3: Xuất file danh sách"]
+        end
+        
+        %% Subgraph for Customer Interaction
+        subgraph Communication["💬 4. Tương tác Khách hàng"]
+            UC8["UC8: Chat với khách hàng"]
+        end
+    end
+
+    %% Define Actor to Use Case relationships
+    Host -->|"sử dụng"| UC1
+    Host -->|"sử dụng"| UC2
+    Host -->|"sử dụng"| UC3
+    Host -->|"sử dụng"| UC4
+    Host -->|"sử dụng"| UC5
+    Host -->|"sử dụng"| UC6
+    Host -->|"sử dụng"| UC7
+    Host -->|"sử dụng"| UC8
+
+    %% Define Use Case relationships (include/extend)
+    
+    %% Profile & Listing - extend relationships
+    UC1_1 -.->|"<<extend>>"| UC1
+    UC2 -->|"<<include>>"| UC2_1
+    UC2_1 -->|"yêu cầu duyệt"| Admin
+
+    %% Calendar & Pricing - extend relationships
+    UC4_1 -.->|"<<extend>>"| UC4
+
+    %% Booking Management - include and extend relationships
+    UC6 -->|"<<include>>"| UC6_1
+    UC6 -->|"<<include>>"| UC6_2
+    UC7_1 -.->|"<<extend>>"| UC7
+    UC7_2 -.->|"<<extend>>"| UC7
+    UC7_3 -.->|"<<extend>>"| UC7
+
+    %% Styling
+    classDef actor fill:#e1f5fe,stroke:#01579b,stroke-width:3px,color:#000
+    classDef usecase fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000
+    classDef extend fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000
+    classDef include fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px,color:#000
+    
+    class Host,Admin actor
+    class UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8 usecase
+    class UC1_1,UC4_1,UC7_1,UC7_2,UC7_3 extend
+    class UC2_1,UC6_1,UC6_2 include

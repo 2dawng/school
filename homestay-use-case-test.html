@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu đồ Use Case - Quản lý Homestay</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .mermaid {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biểu đồ Use Case - Hệ thống Quản lý Homestay</h1>
+        
+        <div class="mermaid">
+graph TD
+    %% Define Actors
+    Host["👤 Chủ homestay"]
+    Admin["👤 Admin"]
+
+    %% Main System Boundary
+    subgraph "Hệ thống Quản lý Homestay"
+        
+        %% Subgraph for Profile & Listing Management
+        subgraph "1. Quản lý Hồ sơ & Homestay"
+            UC1("UC1: Quản lý hồ sơ")
+            UC1_1("UC1.1: Xác thực tài khoản")
+            UC2("UC2: Đăng tải homestay mới")
+            UC3("UC3: Cập nhật chi tiết homestay")
+            UC2_1("UC2.1: Chờ Admin duyệt")
+        end
+
+        %% Subgraph for Calendar & Pricing
+        subgraph "2. Quản lý Lịch & Giá"
+            UC4("UC4: Xem và Cập nhật Lịch tổng quan")
+            UC4_1("UC4.1: Chặn/Mở ngày")
+            UC5("UC5: Thiết lập Quy tắc giá linh hoạt")
+        end
+
+        %% Subgraph for Booking Management
+        subgraph "3. Quản lý Đặt phòng"
+            UC6("UC6: Tiếp nhận và Xử lý Yêu cầu đặt")
+            UC6_1("UC6.1: Chấp nhận yêu cầu")
+            UC6_2("UC6.2: Từ chối yêu cầu")
+            UC7("UC7: Xem Danh sách Đặt phòng")
+            UC7_1("UC7.1: Lọc danh sách")
+            UC7_2("UC7.2: Tìm kiếm đặt phòng")
+            UC7_3("UC7.3: Xuất file danh sách")
+        end
+        
+        %% Subgraph for Customer Interaction
+        subgraph "4. Tương tác Khách hàng"
+            UC8("UC8: Chat với khách hàng")
+        end
+    end
+
+    %% Define Actor to Use Case relationships
+    Host --> UC1
+    Host --> UC2
+    Host --> UC3
+    Host --> UC4
+    Host --> UC5
+    Host --> UC6
+    Host --> UC7
+    Host --> UC8
+
+    %% Define Use Case relationships (include/extend)
+    
+    %% Profile & Listing
+    UC1_1 -.-> UC1
+    UC2 --> UC2_1
+    UC2_1 --> Admin
+
+    %% Calendar & Pricing
+    UC4_1 -.-> UC4
+
+    %% Booking Management
+    UC6 --> UC6_1
+    UC6 --> UC6_2
+    UC7_1 -.-> UC7
+    UC7_2 -.-> UC7
+    UC7_3 -.-> UC7
+
+    %% Style actors differently
+    classDef actor fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    class Host,Admin actor
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <h3>Mô tả Use Cases:</h3>
+            <ul>
+                <li><strong>UC1:</strong> Chủ homestay quản lý thông tin hồ sơ cá nhân</li>
+                <li><strong>UC2:</strong> Đăng tải homestay mới lên hệ thống</li>
+                <li><strong>UC3:</strong> Cập nhật thông tin chi tiết của homestay</li>
+                <li><strong>UC4:</strong> Xem và cập nhật lịch tổng quan</li>
+                <li><strong>UC5:</strong> Thiết lập quy tắc giá linh hoạt</li>
+                <li><strong>UC6:</strong> Tiếp nhận và xử lý yêu cầu đặt phòng</li>
+                <li><strong>UC7:</strong> Xem danh sách các đặt phòng</li>
+                <li><strong>UC8:</strong> Chat trực tiếp với khách hàng</li>
+            </ul>
+            
+            <h3>Quan hệ:</h3>
+            <ul>
+                <li><strong>Include:</strong> UC2 → UC2.1 (Chờ Admin duyệt)</li>
+                <li><strong>Include:</strong> UC6 → UC6.1, UC6.2 (Chấp nhận/Từ chối yêu cầu)</li>
+                <li><strong>Extend:</strong> UC1.1 → UC1 (Xác thực tài khoản)</li>
+                <li><strong>Extend:</strong> UC4.1 → UC4 (Chặn/Mở ngày)</li>
+                <li><strong>Extend:</strong> UC7.1, UC7.2, UC7.3 → UC7 (Lọc, tìm kiếm, xuất file)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+    </script>
+</body>
+</html>

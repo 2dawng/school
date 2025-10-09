@@ -58,6 +58,22 @@
             "program": "${workspaceFolder}/python/ltm/client_simple.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}/python/ltm"
+        },
+        {
+            "name": "Debug Chat Client Interactive",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/ltm/client_chat_interactive.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/ltm"
+        },
+        {
+            "name": "Debug Chat Client Auto",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/ltm/client_chat_auto.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/ltm"
         }
     ],
     "compounds": [
@@ -98,6 +114,22 @@
             "configurations": [
                 "Debug Server",
                 "Debug Client Simple"
+            ],
+            "stopAll": true
+        },
+        {
+            "name": "Debug Chat Server & Interactive Client",
+            "configurations": [
+                "Debug Server",
+                "Debug Chat Client Interactive"
+            ],
+            "stopAll": true
+        },
+        {
+            "name": "Debug Chat Server & Auto Client",
+            "configurations": [
+                "Debug Server",
+                "Debug Chat Client Auto"
             ],
             "stopAll": true
         }

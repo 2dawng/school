@@ -1,65 +1,85 @@
-from queue import Queue
 import socket
-import threading
+import select
 
-host, port = "127.0.0.1", 9050
-WORKERS = 4
-task = Queue()
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+server.bind(('127.0.0.1', 9050))
+server.listen()
+server.setblocking(False)
 
-def process_command(command):
-    """Process text commands: UPPER:text, REVERSE:text, COUNT:text or echo plain text"""
-    # If no colon, treat as plain text and echo it back
-    if ':' not in command:
-        return f"Echo: {command}"
-    
-    cmd, text = command.split(':', 1)
-    cmd = cmd.strip().upper()
-    
-    if cmd == "UPPER":
-        return text.upper()
-    elif cmd == "REVERSE":
-        return text[::-1]
-    elif cmd == "COUNT":
-        return str(len(text))
-    else:
-        return "ERROR: Unknown command"
+sockets = {server}
+rooms = {}
+who = {}
 
-def worker():
-    while True:
-        client_socket, addr = task.get()
-        if client_socket is None:
-            break
-        try:
-            with client_socket:
-                client_socket.sendall(f"Welcome to the pool\n".encode('utf-8'))
-                while True:
-                    data=client_socket.recv(1024).decode('utf-8')
-                    if not data:
-                        break
-                    result = process_command(data)
-                    client_socket.sendall(result.encode('utf-8'))
-        finally:
-            task.task_done()
-
-    
-
-def main():
-    for _ in range(WORKERS):
-        t = threading.Thread(target=worker, daemon=True).start()
-    sk=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-    sk.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
-    sk.bind((host,port))
-    sk.listen(5)
-    print(f"[LISTENING] Server is listening on {host}:{port}")
+def send(sock, msg):
     try:
-        while True:
-            client_socket,addr=sk.accept()
-            task.put((client_socket, addr))
-    except KeyboardInterrupt:
-        print("[SHUTTING DOWN] Server is shutting down.")
-    finally:
-        for _ in range(WORKERS):
-            task.put((None, None))
+        sock.send((msg + '\n').encode())
+    except:
+        pass
 
-if __name__ == '__main__':
-    main()
+
+def board_cast(room, msg, except_sock=None):
+    for c  in rooms.get(room, []):
+        if c != except_sock:
+            send(c, msg)
+
+print("Chat server...")
+user_id = 0
+
+while True:
+    r, _, _ = select.select(list(sockets), [], [])
+    for s in r:
+        if s == server:
+            # tao ket noi
+            c, addr = server.accept()
+            c.setblocking(False)
+            sockets.add(c)
+            user_id += 1
+            who[c] = {"room": None, "nick": f'user{user_id}'}
+            send(c, f'welcome user {user_id}. Cu phap /join <room> de vao')
+            print(f'[IN] user{user_id} connected from {addr}')
+        else:
+            # xu ly client mess
+            try:
+                data = s.recv(1024)
+                if not data:
+                    raise ConnectionError
+                for line in data.decode(errors='ignore').strip().splitlines():
+                    line = line.strip()
+                    if line.startswith('/join'):
+                        new_room = line.split(maxsplit=1)[1]
+                        old_room = who[s]["room"]
+                        # bo room cu
+                        if old_room and s in rooms.get(old_room, set()):
+                            rooms[old_room].remove(s)
+                            board_cast(old_room, f'join {new_room}')
+                        # vao room moi
+                        rooms.setdefault(new_room, set()).add(s)
+                        who[s]["room"] = new_room
+                        send(s, f'joined {new_room}')
+                        board_cast(new_room, f'{who[s]["nick"]} joined', s)
+                    elif line == '/leave':
+                        room = who[s]["room"]
+                        if room:
+                            rooms[room].remove(s)
+                            board_cast(room, f'{who[s]["nick"]} left', s)
+                            send(s, f'left {room}')
+                        else:
+                            send(s, 'ban khong o trong room nao')
+                    else:
+                        room = who[s]["room"]
+                        if room:
+                            board_cast(room, f'{who[s]["nick"]}: {line}', s)
+                        else:
+                            send(s, 'ban chua vao room. Cu phap /join <room> de vao')
+            except:
+                # ngat ket noi
+                nick = who.get(s, {}).get("nick", "unknown")
+                room = who.get(s, {}).get("room")
+                if room and s in rooms.get(room, set()):
+                    rooms[room].remove(s)
+                    board_cast(room, f'{who[s]["nick"]} left', s)
+                print(f'[OUT] {nick} disconnected')
+                sockets.discard(s)
+                who.pop(s, None)
+                s.close()

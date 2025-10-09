@@ -1,0 +1,135 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Availability and Pricing" id="availability-pricing">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- System Boundary -->
+        <mxCell id="system-boundary" value="Lịch và Giá (Availability &amp; Pricing)" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="50" width="750" height="550" as="geometry" />
+        </mxCell>
+        
+        <!-- Host Actor -->
+        <mxCell id="host-actor" value="Chủ Homestay" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="30" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- UC05: Quản lý lịch trống -->
+        <mxCell id="UC05" value="Quản lý lịch trống" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="180" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- UC06: Thiết lập giá linh hoạt -->
+        <mxCell id="UC06" value="Thiết lập giá linh hoạt" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="180" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Supporting use cases for UC05 -->
+        <mxCell id="UC05-display" value="Hiển thị lịch" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="230" y="320" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC05-block" value="Chặn ngày" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="350" y="320" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC05-unblock" value="Mở ngày" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="470" y="320" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Supporting use cases for UC06 -->
+        <mxCell id="UC06-config" value="Cấu hình nhiều quy tắc giá" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="600" y="320" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC06-seasonal" value="Thiết lập giá theo mùa" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="740" y="320" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC06-weekend" value="Thiết lập giá cuối tuần" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="600" y="420" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC06-discount" value="Thiết lập giá giảm" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="740" y="420" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ASSOCIATIONS -->
+        <!-- Host to UC05 -->
+        <mxCell id="host-UC05" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="host-actor" target="UC05">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="270" as="sourcePoint" />
+            <mxPoint x="300" y="215" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Host to UC06 -->
+        <mxCell id="host-UC06" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="host-actor" target="UC06">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="270" as="sourcePoint" />
+            <mxPoint x="650" y="215" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- INCLUDE RELATIONSHIPS -->
+        <!-- UC05 includes display -->
+        <mxCell id="inc-UC05-display" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.2;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC05" target="UC05-display">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="328" y="250" as="sourcePoint" />
+            <mxPoint x="280" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC05 includes block -->
+        <mxCell id="inc-UC05-block" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC05" target="UC05-block">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="370" y="250" as="sourcePoint" />
+            <mxPoint x="400" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC05 includes unblock -->
+        <mxCell id="inc-UC05-unblock" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.8;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC05" target="UC05-unblock">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="412" y="250" as="sourcePoint" />
+            <mxPoint x="520" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC06 includes config -->
+        <mxCell id="inc-UC06-config" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.2;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC06" target="UC06-config">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="678" y="250" as="sourcePoint" />
+            <mxPoint x="660" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC06 includes seasonal -->
+        <mxCell id="inc-UC06-seasonal" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.8;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC06" target="UC06-seasonal">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="762" y="250" as="sourcePoint" />
+            <mxPoint x="800" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC06-config includes weekend -->
+        <mxCell id="inc-config-weekend" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC06-config" target="UC06-weekend">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="660" y="370" as="sourcePoint" />
+            <mxPoint x="660" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC06-config includes discount -->
+        <mxCell id="inc-config-discount" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC06-config" target="UC06-discount">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="720" y="370" as="sourcePoint" />
+            <mxPoint x="740" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

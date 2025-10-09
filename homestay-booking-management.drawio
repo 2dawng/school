@@ -1,0 +1,116 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Booking Management" id="booking-management">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- System Boundary -->
+        <mxCell id="system-boundary" value="Quản lý đặt phòng (Booking Management)" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="50" width="750" height="550" as="geometry" />
+        </mxCell>
+        
+        <!-- Host Actor -->
+        <mxCell id="host-actor" value="Chủ Homestay" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="30" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Xử lý yêu cầu đặt phòng -->
+        <mxCell id="UC07" value="Xử lý yêu cầu đặt phòng" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="150" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Xem danh sách đặt phòng -->
+        <mxCell id="UC08" value="Xem danh sách đặt phòng" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="150" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Xem chi tiết đặt phòng -->
+        <mxCell id="UC09" value="Xem chi tiết đặt phòng" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="150" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Supporting use cases for UC07 -->
+        <mxCell id="UC07-notify" value="Gửi thông báo" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="300" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC07-message" value="Gửi tin nhắn mẫu" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="300" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Supporting use cases for UC09 -->
+        <mxCell id="UC09-payment" value="Xem lịch sử thanh toán" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="300" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC09-contact" value="Xem lịch sử liên lạc" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="840" y="300" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ASSOCIATIONS -->
+        <!-- Host to UC07 -->
+        <mxCell id="host-UC07" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="host-actor" target="UC07">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="270" as="sourcePoint" />
+            <mxPoint x="250" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Host to UC08 -->
+        <mxCell id="host-UC08" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="host-actor" target="UC08">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="270" as="sourcePoint" />
+            <mxPoint x="500" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- INCLUDE RELATIONSHIPS -->
+        <!-- UC07 includes notifications -->
+        <mxCell id="inc-UC07-notify" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.2;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC07" target="UC07-notify">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="278" y="220" as="sourcePoint" />
+            <mxPoint x="250" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC07 includes messages -->
+        <mxCell id="inc-UC07-message" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.8;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC07" target="UC07-message">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="362" y="220" as="sourcePoint" />
+            <mxPoint x="370" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC08 includes UC09 -->
+        <mxCell id="inc-UC08-UC09" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&#xa;Xem chi tiết" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC08" target="UC09">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="640" y="185" as="sourcePoint" />
+            <mxPoint x="750" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC09 includes payment history -->
+        <mxCell id="inc-UC09-payment" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.2;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC09" target="UC09-payment">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="778" y="220" as="sourcePoint" />
+            <mxPoint x="760" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC09 includes contact history -->
+        <mxCell id="inc-UC09-contact" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.8;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC09" target="UC09-contact">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="862" y="220" as="sourcePoint" />
+            <mxPoint x="900" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+
+        
+
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

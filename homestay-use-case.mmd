@@ -1,75 +1,82 @@
----
-title: Biểu đồ Use Case - Quản lý Homestay
----
-graph TD
-    %% Define Actors
-    Host["👤 Chủ homestay"]
-    Admin["👤 Admin"]
-
-    %% Main System Boundary
-    subgraph "Hệ thống Quản lý Homestay"
-        
-        %% Subgraph for Profile & Listing Management
-        subgraph "1. Quản lý Hồ sơ & Homestay"
-            UC1("UC1: Quản lý hồ sơ")
-            UC1_1("UC1.1: Xác thực tài khoản")
-            UC2("UC2: Đăng tải homestay mới")
-            UC3("UC3: Cập nhật chi tiết homestay")
-            UC2_1("UC2.1: Chờ Admin duyệt")
-        end
-
-        %% Subgraph for Calendar & Pricing
-        subgraph "2. Quản lý Lịch & Giá"
-            UC4("UC4: Xem và Cập nhật Lịch tổng quan")
-            UC4_1("UC4.1: Chặn/Mở ngày")
-            UC5("UC5: Thiết lập Quy tắc giá linh hoạt")
-        end
-
-        %% Subgraph for Booking Management
-        subgraph "3. Quản lý Đặt phòng"
-            UC6("UC6: Tiếp nhận và Xử lý Yêu cầu đặt")
-            UC6_1("UC6.1: Chấp nhận yêu cầu")
-            UC6_2("UC6.2: Từ chối yêu cầu")
-            UC7("UC7: Xem Danh sách Đặt phòng")
-            UC7_1("UC7.1: Lọc danh sách")
-            UC7_2("UC7.2: Tìm kiếm đặt phòng")
-            UC7_3("UC7.3: Xuất file danh sách")
-        end
-        
-        %% Subgraph for Customer Interaction
-        subgraph "4. Tương tác Khách hàng"
-            UC8("UC8: Chat với khách hàng")
-        end
-    end
-
-    %% Define Actor to Use Case relationships
-    Host --> UC1
-    Host --> UC2
-    Host --> UC3
-    Host --> UC4
-    Host --> UC5
-    Host --> UC6
-    Host --> UC7
-    Host --> UC8
-
-    %% Define Use Case relationships (include/extend)
-    
-    %% Profile & Listing
-    UC1_1 -.-> UC1
-    UC1_1 -.- UC1
-    UC2 --> UC2_1
-    UC2_1 --> Admin
-
-    %% Calendar & Pricing
-    UC4_1 -.-> UC4
-
-    %% Booking Management
-    UC6 --> UC6_1
-    UC6 --> UC6_2
-    UC7_1 -.-> UC7
-    UC7_2 -.-> UC7
-    UC7_3 -.-> UC7
-
-    %% Style actors differently
-    classDef actor fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    class Host,Admin actor
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Trang-1" id="JxXbkDQjcVB08BAo6zKn">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="30" width="520" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-2" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="250" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-3" value="Quản lý đánh giá người dùng" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="235" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-4" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ztWFwA2nGFECl_0q0w3U-2" target="ztWFwA2nGFECl_0q0w3U-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="410" as="sourcePoint" />
+            <mxPoint x="440" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-5" value="Tìm kiếm, áp dụng bộ lọc" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="130" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-6" value="Xem tố cáo đánh giá vi phạm" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="240" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-7" value="Xoá đánh giá vi phạm" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="360" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-8" value="Gửi thông báo vi phạm" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="470" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-9" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ztWFwA2nGFECl_0q0w3U-6" target="ztWFwA2nGFECl_0q0w3U-7">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="380" as="sourcePoint" />
+            <mxPoint x="490" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-11" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ztWFwA2nGFECl_0q0w3U-7" target="ztWFwA2nGFECl_0q0w3U-8">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="380" as="sourcePoint" />
+            <mxPoint x="490" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-12" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ztWFwA2nGFECl_0q0w3U-3" target="ztWFwA2nGFECl_0q0w3U-6">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="380" as="sourcePoint" />
+            <mxPoint x="490" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-13" value="Người dùng" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-16" value="Tố cáo đánh giá vi phạm" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="205" y="100" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-17" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ztWFwA2nGFECl_0q0w3U-13" target="ztWFwA2nGFECl_0q0w3U-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="210" as="sourcePoint" />
+            <mxPoint x="440" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-19" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="ztWFwA2nGFECl_0q0w3U-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="270" as="sourcePoint" />
+            <mxPoint x="470" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ztWFwA2nGFECl_0q0w3U-20" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ztWFwA2nGFECl_0q0w3U-5" target="ztWFwA2nGFECl_0q0w3U-6">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="210" as="sourcePoint" />
+            <mxPoint x="490" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MhO3KY-3OzwUgxHRA3we-1" value="Quản lý đánh giá người dùng" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="165" y="50" width="180" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

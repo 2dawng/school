@@ -1,0 +1,136 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Dashboard & Payouts" id="dashboard-payouts">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- System Boundary -->
+        <mxCell id="system-boundary" value="Báo cáo &amp; Thanh toán (Dashboard &amp; Payouts)" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="50" width="750" height="550" as="geometry" />
+        </mxCell>
+        
+        <!-- Host Actor -->
+        <mxCell id="host-actor" value="Chủ Homestay" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="30" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Xem bảng điều khiển hiệu suất -->
+        <mxCell id="UC13" value="Xem bảng điều khiển&#xa;hiệu suất" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="150" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Quản lý doanh thu & thanh toán -->
+        <mxCell id="UC14" value="Quản lý doanh thu &amp;&#xa;thanh toán" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Quản lý báo cáo doanh thu chi tiết -->
+        <mxCell id="UC14-1" value="Xem báo cáo doanh thu&#xa;chi tiết" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="750" y="120" width="130" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC14-2" value="Xem lịch sử giao dịch" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="750" y="200" width="130" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC14-3" value="Thiết lập tài khoản&#xa;nhận tiền" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="750" y="280" width="130" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Supporting use cases for UC13 -->
+        <mxCell id="UC13-kpi" value="Xem KPI" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="300" width="80" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC13-status" value="Trạng thái phòng" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="300" width="80" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Supporting use cases for UC14.3 -->
+        <mxCell id="UC14-3-security" value="Xác thực bảo mật" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="800" y="380" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ASSOCIATIONS -->
+        <!-- Host to UC13 -->
+        <mxCell id="host-UC13" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="host-actor" target="UC13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="270" as="sourcePoint" />
+            <mxPoint x="250" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Host to UC14 -->
+        <mxCell id="host-UC14" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="host-actor" target="UC14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="270" as="sourcePoint" />
+            <mxPoint x="500" y="235" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- GENERALIZATION RELATIONSHIPS -->
+        <!-- UC14 generalizes UC14.1 -->
+        <mxCell id="gen-UC14-1" value="" style="endArrow=block;endFill=0;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" edge="1" parent="1" source="UC14-1" target="UC14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="750" y="150" as="sourcePoint" />
+            <mxPoint x="640" y="214" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC14 generalizes UC14.2 -->
+        <mxCell id="gen-UC14-2" value="" style="endArrow=block;endFill=0;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="UC14-2" target="UC14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="750" y="230" as="sourcePoint" />
+            <mxPoint x="640" y="235" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC14 generalizes UC14.3 -->
+        <mxCell id="gen-UC14-3" value="" style="endArrow=block;endFill=0;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" edge="1" parent="1" source="UC14-3" target="UC14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="750" y="310" as="sourcePoint" />
+            <mxPoint x="640" y="256" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- INCLUDE RELATIONSHIPS -->
+        <!-- UC13 includes KPI -->
+        <mxCell id="inc-UC13-kpi" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.2;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#E74C3C;" edge="1" parent="1" source="UC13" target="UC13-kpi">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="278" y="220" as="sourcePoint" />
+            <mxPoint x="240" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC13 includes status -->
+        <mxCell id="inc-UC13-status" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.8;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#E74C3C;" edge="1" parent="1" source="UC13" target="UC13-status">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="362" y="220" as="sourcePoint" />
+            <mxPoint x="340" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC14.3 includes security verification -->
+        <mxCell id="inc-UC14-3-security" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&#xa;xác thực bảo mật" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#E74C3C;" edge="1" parent="1" source="UC14-3" target="UC14-3-security">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="815" y="340" as="sourcePoint" />
+            <mxPoint x="850" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+
+        
+        <!-- Flow Description -->
+        <mxCell id="flow-title" value="Luồng báo cáo:" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="470" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="flow-desc" value="1. Host xem bảng điều khiển → KPI &amp; trạng thái phòng&#xa;2. Host quản lý doanh thu → báo cáo chi tiết, lịch sử&#xa;3. Thiết lập tài khoản nhận tiền → xác thực bảo mật" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="450" y="490" width="300" height="60" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

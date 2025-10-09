@@ -1,0 +1,115 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Guest Interaction & Review" id="guest-interaction-review">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- System Boundary -->
+        <mxCell id="system-boundary" value="Giao tiếp &amp; Đánh giá (Guest Interaction &amp; Review)" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="50" width="750" height="550" as="geometry" />
+        </mxCell>
+        
+        <!-- Host Actor -->
+        <mxCell id="host-actor" value="Chủ Homestay" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="30" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Admin Actor -->
+        <mxCell id="admin-actor" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="400" width="30" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Trò chuyện với khách hàng -->
+        <mxCell id="UC10" value="Trò chuyện với khách hàng" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="150" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Gửi tin nhắn tự động -->
+        <mxCell id="UC11" value="Gửi tin nhắn tự động" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="150" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Quản lý đánh giá -->
+        <mxCell id="UC12" value="Quản lý đánh giá" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="350" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Supporting use cases for UC11 -->
+        <mxCell id="UC11-booking" value="Gửi khi đặt phòng" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="450" y="300" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="UC11-checkout" value="Nhắc check-out" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="570" y="300" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Supporting use cases for UC12 -->
+        <mxCell id="UC12-respond" value="Phản hồi đánh giá" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="800" y="480" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ASSOCIATIONS -->
+        <!-- Host to UC10 -->
+        <mxCell id="host-UC10" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="host-actor" target="UC10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="220" as="sourcePoint" />
+            <mxPoint x="250" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Admin to UC12 -->
+        <mxCell id="admin-UC12" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="admin-actor" target="UC12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="420" as="sourcePoint" />
+            <mxPoint x="700" y="385" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- EXTEND RELATIONSHIPS -->
+        <!-- UC11 extends UC10 -->
+        <mxCell id="ext-UC11-UC10" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC11" target="UC10">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="500" y="185" as="sourcePoint" />
+            <mxPoint x="390" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC11 extends to specific scenarios -->
+        <mxCell id="ext-UC11-booking" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.2;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC11" target="UC11-booking">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="528" y="220" as="sourcePoint" />
+            <mxPoint x="500" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="ext-UC11-checkout" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.8;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC11" target="UC11-checkout">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="612" y="220" as="sourcePoint" />
+            <mxPoint x="620" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC12 extends to respond to reviews -->
+        <mxCell id="ext-UC12-respond" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC12" target="UC12-respond">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="770" y="420" as="sourcePoint" />
+            <mxPoint x="850" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+
+        
+        <!-- Flow Description -->
+        <mxCell id="flow-title" value="Luồng tương tác:" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="480" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="flow-desc" value="1. Host trò chuyện với khách hàng (có thể tự động)&#xa;2. Tin nhắn tự động khi đặt phòng hoặc nhắc check-out&#xa;3. Admin quản lý đánh giá (có thể phản hồi)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="450" y="500" width="300" height="60" as="targetPoint" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

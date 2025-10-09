@@ -1,0 +1,118 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Property Management" id="property-management">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="900" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- System Boundary -->
+        <mxCell id="system-boundary" value="Quản lý tài sản (Property Management)" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="50" width="600" height="500" as="geometry" />
+        </mxCell>
+        
+        <!-- Host Actor -->
+        <mxCell id="host-actor" value="Chủ Homestay" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="30" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Quản lý hồ sơ chủ nhà -->
+        <mxCell id="UC01" value="Quản lý hồ sơ chủ nhà" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="150" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Quản lý homestay -->
+        <mxCell id="UC02" value="Quản lý homestay" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="200" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Tạo homestay mới -->
+        <mxCell id="UC02-1" value="Tạo homestay mới" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="650" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Cập nhật thông tin homestay -->
+        <mxCell id="UC02-2" value="Cập nhật thông tin homestay" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="650" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Quản lý ảnh & video -->
+        <mxCell id="UC03" value="Quản lý ảnh &amp; video" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Kích hoạt / tạm ẩn homestay -->
+        <mxCell id="UC04" value="Kích hoạt / tạm ẩn&#xa;homestay" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="650" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Xác thực (included in UC01) -->
+        <mxCell id="auth" value="Xác thực" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="300" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ASSOCIATIONS -->
+        <!-- Host to UC01 -->
+        <mxCell id="host-UC01" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="host-actor" target="UC01">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="270" as="sourcePoint" />
+            <mxPoint x="250" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Host to UC02 -->
+        <mxCell id="host-UC02" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="host-actor" target="UC02">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="270" as="sourcePoint" />
+            <mxPoint x="450" y="235" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- GENERALIZATION RELATIONSHIPS -->
+        <!-- UC02 generalizes UC02.1 -->
+        <mxCell id="gen-UC02-1" value="" style="endArrow=block;endFill=0;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" edge="1" parent="1" source="UC02-1" target="UC02">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="150" as="sourcePoint" />
+            <mxPoint x="590" y="214" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC02 generalizes UC02.2 -->
+        <mxCell id="gen-UC02-2" value="" style="endArrow=block;endFill=0;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="UC02-2" target="UC02">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="230" as="sourcePoint" />
+            <mxPoint x="590" y="235" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- INCLUDE RELATIONSHIPS -->
+        <!-- UC01 includes Authentication -->
+        <mxCell id="inc-UC01-auth" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC01" target="auth">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="320" y="220" as="sourcePoint" />
+            <mxPoint x="300" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- UC02.2 includes UC03 -->
+        <mxCell id="inc-UC02-2-UC03" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&#xa;Quản lý tiện ích, ảnh, nội quy" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC02-2" target="UC03">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="710" y="260" as="sourcePoint" />
+            <mxPoint x="560" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- EXTEND RELATIONSHIPS -->
+        <!-- UC04 extends UC02.2 -->
+        <mxCell id="ext-UC04-UC02-2" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=1.5;" edge="1" parent="1" source="UC04" target="UC02-2">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="710" y="300" as="sourcePoint" />
+            <mxPoint x="710" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

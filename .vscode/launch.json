@@ -74,6 +74,37 @@
             "program": "${workspaceFolder}/python/ltm/client_chat_auto.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}/python/ltm"
+        },
+        {
+            "name": "Flask: ANM Login (Port 4500)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/anm/10.09.1.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/anm",
+            "env": {
+                "FLASK_APP": "10.09.1.py",
+                "FLASK_ENV": "development"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "ANM: Dictionary Attack",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/anm/10.09.2.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/anm",
+            "justMyCode": true
+        },
+        {
+            "name": "ANM: Dictionary Attack with IP Rotation",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/anm/10.09.3.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/anm",
+            "justMyCode": true
         }
     ],
     "compounds": [

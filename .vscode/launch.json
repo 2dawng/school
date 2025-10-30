@@ -105,6 +105,19 @@
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}/python/anm",
             "justMyCode": true
+        },
+        {
+            "name": "Flask: File Upload App (Port 5000)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/python/ltm/main.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/ltm",
+            "env": {
+                "FLASK_APP": "main.py",
+                "FLASK_ENV": "development"
+            },
+            "justMyCode": true
         }
     ],
     "compounds": [
